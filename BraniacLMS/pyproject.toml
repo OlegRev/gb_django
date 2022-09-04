@@ -8,6 +8,8 @@ authors = ["Glukharev Oleg Anatolyevich <olegglukharev92@gmail.com>"]
 python = "^3.10"
 Django = "^4.1"
 django-markdownify = "^0.9.2"
+Pillow = "^9.2.0"
+social-auth-app-django = "^5.0.0"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"

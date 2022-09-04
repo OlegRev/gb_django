@@ -17,7 +17,7 @@ class NewsPageView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["news_qs"] = mainapp_models.News.objects.all()
+        context["news_qs"] = mainapp_models.News.objects.all()[:5]
         return context
 
 
@@ -62,7 +62,3 @@ class ContactsPageView(TemplateView):
 
 class DocSitePageView(TemplateView):
     template_name = "mainapp/doc_site.html"
-
-
-class LoginPageView(TemplateView):
-    template_name = "mainapp/login.html"
