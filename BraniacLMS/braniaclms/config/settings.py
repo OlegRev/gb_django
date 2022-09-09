@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     "social_django",
     "mainapp",
     "authapp",
+    "crispy_forms",
 ]
 
 MIDDLEWARE = [
@@ -148,8 +149,8 @@ MEDIA_ROOT = BASE_DIR / "media"
 AUTH_USER_MODEL = "authapp.CustomUser"
 
 # Перенаправление при логини и логауте
-LOGIN_REDIRECT_URL = "mainapp:index"
-LOGOUT_REDIRECT_URL = "mainapp:index"
+LOGIN_REDIRECT_URL = "mainapp:main_page"
+LOGOUT_REDIRECT_URL = "mainapp:main_page"
 
 # Фреймворк сообщений на сайте
 MESSAGE_STORAGE = "django.contrib.messages.storage.session.SessionStorage"
@@ -161,3 +162,5 @@ AUTHENTICATION_BACKENDS = (
 
 SOCIAL_AUTH_GITHUB_KEY = ""
 SOCIAL_AUTH_GITHUB_SECRET = ""
+
+CRISPY_TEMPLATE_PACK = "bootstrap4"
