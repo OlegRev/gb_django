@@ -3,8 +3,13 @@ from django.http import HttpResponseRedirect
 from django.urls import reverse_lazy
 from django.contrib import messages
 from django.contrib.auth import get_user_model
-from django.contrib.auth.views import LoginView, LogoutView
+from django.contrib.auth.views import (
+    LoginView,
+    LogoutView,
+    PasswordChangeView,
+)
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.contrib.auth.forms import PasswordChangeForm
 
 from django.utils.safestring import mark_safe
 from django.utils.translation import gettext_lazy as _
@@ -84,6 +89,12 @@ class RegisterView(CreateView):
             )
             return HttpResponseRedirect(reverse_lazy("authapp:register"))
 """
+
+
+class PasswordsChangeView(PasswordChangeView):
+    template_name = "authapp/change_password.html"
+    form_class = PasswordChangeForm
+    success_url = reverse_lazy("mainapp:main_page")
 
 
 class ProfileEditView(UserPassesTestMixin, UpdateView):
